@@ -10,7 +10,7 @@ db.once('open', function() {
   console.log('db connected yarpin!');
 });
 
-const qaSchema = new Schema({
-  id:
-});
+// const qaSchema = new Schema({
+//   id:
+// });
 

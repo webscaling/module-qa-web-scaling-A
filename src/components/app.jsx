@@ -19,8 +19,8 @@ export default class App extends Component {
 
   render() {
     return (
-      <div id="search">
-        <h2>Yarpins and Answers</h2>
+      <div id="ask-btf-container">
+        <h2 class="a-color-base">Customer questions & answers YARP!</h2>
         <form id="article-form">
           {/* <Input
             text="SEO title"
@@ -31,6 +31,8 @@ export default class App extends Component {
             handleChange={this.handleChange}
           /> */}
         </form>
+        {/* <Votes /> */}
+        {/* <Qa /> */}
       </div>
     );
   }
