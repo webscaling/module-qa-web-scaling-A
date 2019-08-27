@@ -1,13 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Vote = (props) => {
-  return (
-    <div className="cont" id="vote-cont">
-      <i src=""></i>
-      <span className="vote-count-span">{props.votes}</span>
-      <i src=""></i>
-    </div>
-  );
-};
+export default class Vote extends Component {
+  constructor(props) {
+    super(props);
 
-export default Vote;
+    this.state = {
+      voteCount: 2
+    };
+  }
+
+  // postGroups() {
+  //   axios.post()
+  // }
+
+  upCount(count) {
+    this.setState({
+      voteCount: count + 1
+    });
+  }
+
+  downCount (count) {
+    this.setState({
+      voteCount: count - 1
+    });
+  }
+
+  render() {
+    return (
+      <div className="cont vote-cont">
+        <button
+          type="button"
+          onClick={() => this.upCount(this.state.voteCount)}
+          className="qa-btn">
+          {/* <i className="glyphicon glyphicon-triangle-top">
+          </i> */}
+          Triangle-top
+        </button>
+        <span className="vote-count-span">{this.state.voteCount}
+        </span>
+        <button
+          type="button"
+          onClick={() => this.downCount(this.state.voteCount)}
+          className="btn btn-default btn-sm"
+        >
+          {/* <i className="glyphicon glyphicon-triangle-top">
+          </i> */}
+          Triangle-top
+        </button>
+      </div>
+    );
+  }
+}
+
+
