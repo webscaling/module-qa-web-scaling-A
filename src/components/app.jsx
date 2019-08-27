@@ -1,14 +1,21 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import Input from "./presentational/Input.jsx";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import Input from './presentational/Input.jsx';
+import QA from './presentational/qa.jsx';
+import QavCont from './container/qa-vote-cont.jsx';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      itemID: "",
-      seo_title: ""
+      // itemID: "",
+      qaSearchBar: '',
+      qaData: [
+        {'q': 'Does they feel comfy?', 'a': 'Yessum', 'v': 4, 'auth': 'Jim', 'd': 'October 5, 2016' },
+        {'q': 'Does they feel just right?', 'a': 'Yarp', 'v': 5, 'auth': 'Darnell', 'd': 'October 8, 2016' },
+        {'q': 'Does they taste like real eggs?', 'a': 'Yes, they most certainly do!', 'v': 6, 'auth': 'Bob', 'd': 'October 23, 2016' }
+      ]
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -19,20 +26,20 @@ export default class App extends Component {
 
   render() {
     return (
-      <div id="ask-btf-container">
-        <h2 class="a-color-base">Customer questions & answers YARP!</h2>
-        <form id="article-form">
-          {/* <Input
-            text="SEO title"
-            label="seo_title"
-            type="text"
-            id="seo_title"
-            value={seo_title}
-            handleChange={this.handleChange}
-          /> */}
-        </form>
+      <div id="QA-comp-cont" className="cont">
+        <h2 className="a-color-base">Customer questions & answers</h2>
+        <Input
+          text=""
+          label="qa_search"
+          type="text"
+          id="qaSearchBar"
+          value=""
+          handleChange={this.handleChange}
+        />
         {/* <Votes /> */}
-        {/* <Qa /> */}
+        <div className="cont" id="QA-vote-table">
+          <QavCont qaItem={this.state.qaData[0]}/>
+        </div>
       </div>
     );
   }
@@ -40,5 +47,3 @@ export default class App extends Component {
 
 }
 
-const wrapper = document.getElementById("create-article-form");
-wrapper ? ReactDOM.render(<App />, wrapper) : false;
