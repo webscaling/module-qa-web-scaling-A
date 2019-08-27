@@ -28,25 +28,18 @@ export default class Vote extends Component {
   render() {
     return (
       <div className="cont vote-cont">
-        <button
-          type="button"
+        <img
           onClick={() => this.upCount(this.state.voteCount)}
-          className="qa-btn">
-          {/* <i className="glyphicon glyphicon-triangle-top">
-          </i> */}
-          Triangle-top
-        </button>
+          className="qa-btn"
+          src="https://cdns.iconmonstr.com/wp-content/assets/preview/2012/240/iconmonstr-triangle-1.png"
+        ></img>
         <span className="vote-count-span">{this.state.voteCount}
         </span>
-        <button
-          type="button"
+        <img
           onClick={() => this.downCount(this.state.voteCount)}
           className="btn btn-default btn-sm"
-        >
-          {/* <i className="glyphicon glyphicon-triangle-top">
-          </i> */}
-          Triangle-top
-        </button>
+          src="https://image.freepik.com/free-icon/triangle-down_318-10786.jpg"
+        ></img>
       </div>
     );
   }
