@@ -27,20 +27,27 @@ export default class Vote extends Component {
 
   render() {
     return (
-      <div className="cont vote-cont">
-        <img
-          onClick={() => this.upCount(this.state.voteCount)}
-          className="qa-btn"
-          src="https://cdns.iconmonstr.com/wp-content/assets/preview/2012/240/iconmonstr-triangle-1.png"
-        ></img>
-        <span className="vote-count-span">{this.state.voteCount}
-        </span>
-        <img
-          onClick={() => this.downCount(this.state.voteCount)}
-          className="btn btn-default btn-sm"
-          src="https://image.freepik.com/free-icon/triangle-down_318-10786.jpg"
-        ></img>
-      </div>
+      <ul className="cont vote-cont">
+        <li>
+          <img
+            onClick={() => this.upCount(this.state.voteCount)}
+            className="vote-btn"
+            src="https://shazamazon.s3.us-east-2.amazonaws.com/QA-vote-icons/triangle-vote.jpg"
+          ></img>
+        </li>
+        <li className="vote-label">
+          <span className="vote-count-span">{this.state.voteCount}</span>
+          <span><br/></span>
+          <span className="vote-vote-span">{this.state.voteCount > 1 ? 'votes' : 'vote'}</span>
+        </li>
+        <li>
+          <img
+            onClick={() => this.downCount(this.state.voteCount)}
+            className="vote-btn btn btn-default btn-sm"
+            src="https://shazamazon.s3.us-east-2.amazonaws.com/QA-vote-icons/triangle-vote-down.jpg"
+          ></img>
+        </li>
+      </ul>
     );
   }
 }
