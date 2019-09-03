@@ -27,7 +27,7 @@ export default class App extends Component {
   render() {
     return (
       <div id="QA-comp-cont" className="cont">
-        <h2 className="a-color-base">Customer questions & answers</h2>
+        <h2 id="qa-title" className="a-color-base">Customer questions & answers</h2>
         <Input
           text=""
           label="qa_search"
@@ -37,8 +37,13 @@ export default class App extends Component {
           handleChange={this.handleChange}
         />
         {/* <Votes /> */}
-        <div className="cont" id="QA-vote-table">
-          <QavCont qaItem={this.state.qaData[0]}/>
+        <div className="cont" id="qa-vote-table">
+          {
+            this.state.qaData.map(qa => (
+              <QavCont
+                qaItem={qa} />
+            ))
+          }
         </div>
       </div>
     );

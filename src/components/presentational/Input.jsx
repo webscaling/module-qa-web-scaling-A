@@ -1,14 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Input = (props) => (
-  <div class="a-search a-span12">
-    <i class="a-icon a-icon-search"></i>
+  <div className="a-search a-span12">
+    <img
+      src="https://shazamazon.s3.us-east-2.amazonaws.com/QA-vote-icons/search-icon.jpg" className="a-icon a-icon-search"
+      onClick={() => document.getElementById('qa-search-input').value = ''}></img>
     <input type="search" maxlength="150"
       autocomplete="off"
       placeholder="Have a question? Search for answers"
       name="askQuestionText"
-      class="a-input-text a-span12"></input>
+      id="qa-search-input"
+      className="a-input-text a-span12"></input>
   </div>
 );
 
