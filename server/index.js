@@ -21,5 +21,5 @@ app.get('/yarpo', (req, res) => {
 
 
 //Port
-const port = 7777;
+const port = 3000;
 app.listen(port, () => console.log(`QA proxy serving up the customer query sauce at port: ${port}`));
