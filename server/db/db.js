@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const LoremIpsum = require("lorem-ipsum").LoremIpsum;
+const LoremIpsum = require('lorem-ipsum').LoremIpsum;
 
 mongoose.connect('mongodb://localhost:27017/firstNewDB', {useNewUrlParser: true});
 

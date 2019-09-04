@@ -38,7 +38,7 @@ export default class Vote extends Component {
         <li className="vote-label">
           <span className="vote-count-span">{this.state.voteCount}</span>
           <span><br/></span>
-          <span className="vote-vote-span">{this.state.voteCount > 1 ? 'votes' : 'vote'}</span>
+          <span className="vote-vote-span">{this.state.voteCount > 1 || this.state ? 'votes' : 'vote'}</span>
         </li>
         <li>
           <img
