@@ -5,12 +5,12 @@ import Vote from '../presentational/votes.jsx';
 const QavCont = (props) => {
   return (
     <div className="cont qa-vote-cont">
-      <Vote votes={props.qaItem.v}/>
+      <Vote votes={props.qaItem.Votes}/>
       <QA
-        q={props.qaItem.q}
-        a={props.qaItem.a}
-        auth={props.qaItem.auth}
-        date={props.qaItem.d}
+        q={props.qaItem.Qstn}
+        a={props.qaItem.Ans}
+        auth={props.qaItem.Author}
+        date={props.qaItem.Date}
       />
     </div>
   );

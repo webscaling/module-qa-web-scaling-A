@@ -37,6 +37,11 @@ h2 {
   margin-inline-end: 0px;
 }
 
+a:hover {
+  color: #cc6600;
+  text-decoration: underline;
+}
+
 #qa-title {
   font-family: "Amazon Ember", Verdana, Arial, Helvetica, sans-serif;
 }
