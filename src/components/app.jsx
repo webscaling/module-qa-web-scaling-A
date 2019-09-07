@@ -24,7 +24,7 @@ export default class App extends Component {
         {'Qstn': 'Does they taste like real eggs?', 'Ans': 'Yes, they most certainly do!', 'Votes': 6, 'Author': 'Bob', 'Date': 'October 23, 2016' },
         {'Qstn': 'Does they feel just right?', 'Ans': 'Yarp', 'Votes': 5, 'Author': 'Darnell', 'Date': 'October 8, 2016' }
       ],
-      dns: 'http://ec2-18-223-28-104.us-east-2.compute.amazonaws.com'
+      dns: 'http://18.223.28.104'
       // 'http://localhost:3000' swap for local testing
     };
     this.handleChange = this.handleChange.bind(this);
