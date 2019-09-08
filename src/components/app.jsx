@@ -37,7 +37,7 @@ export default class App extends Component {
       }
     })
       .then(({ data }) => {
-        console.log('successful axios GET req getItem');
+        console.log('successful axios GET req getItem' + data);
         this.setState({
           qArr: data.QA,
           cappedQArr: data.QA.slice(0, 4)
