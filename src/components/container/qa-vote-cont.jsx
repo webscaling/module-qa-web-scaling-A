@@ -5,7 +5,7 @@ import Vote from '../presentational/votes.jsx';
 const QavCont = (props) => {
   return (
     <div className="cont qa-vote-cont">
-      <Vote votes={props.qaItem.Votes}/>
+      <Vote votes={props.qaItem.Votes} pID={props.pID} qID={props.qaItem._id}/>
       <QA
         q={props.qaItem.Qstn}
         a={props.qaItem.Ans}

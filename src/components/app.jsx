@@ -24,8 +24,9 @@ export default class App extends Component {
         {'Qstn': 'Does they taste like real eggs?', 'Ans': 'Yes, they most certainly do!', 'Votes': 6, 'Author': 'Bob', 'Date': 'October 23, 2016' },
         {'Qstn': 'Does they feel just right?', 'Ans': 'Yarp', 'Votes': 5, 'Author': 'Darnell', 'Date': 'October 8, 2016' }
       ],
+      // remQ: (this.state.qArr - this.state.cappedQArr),
       dns: 'http://18.223.28.104'
-      // 'http://localhost:3000' swap for local testing
+      // 'http://localhost:3000'  'http://18.223.28.104' swap for local testing
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -37,7 +38,7 @@ export default class App extends Component {
       }
     })
       .then(({ data }) => {
-        console.log('successful axios GET req getItem' + data);
+        // console.log('successful axios GET req getItem' + data);
         this.setState({
           qArr: data.QA,
           cappedQArr: data.QA.slice(0, 4)
@@ -64,6 +65,12 @@ export default class App extends Component {
     this.setState({ [event.target.id]: event.target.value });
   }
 
+  // moreQs(cappedArr, arr) {
+  //   this.setState({
+  //     cappedQArr: this.state.qArr.slice()
+  //     remQ:
+  //   });
+  // }
 
   render() {
     return (
@@ -82,7 +89,9 @@ export default class App extends Component {
           {
             this.state.cappedQArr.map(qa => (
               <QavCont
-                qaItem={qa} />
+                qaItem={qa}
+                pID={this.state.id}
+              />
             ))
           }
         </div>
@@ -93,3 +102,12 @@ export default class App extends Component {
 
 }
 
+
+{/* <div className="qa-a-section">
+          <span className="qa-a-button">
+            <span onClick={() => this.moreQs(this.state.cappedQArr, this.state.qArr)} className="qa-a-button-text">
+              See more answered questions {this.state.remQ}
+            </span>
+          </span>
+        </div>
+      </div> */}

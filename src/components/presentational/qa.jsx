@@ -28,7 +28,7 @@ const dateFormr = date => {
     dateStr += dateSplit[0];
     return dateStr;
   } else {
-    console.log('Date month format error');
+    // console.log('Date month format error');
     return dateStr += 'April 20, 2004';
   }
 };
@@ -43,7 +43,7 @@ const QA = (props) => {
         <span className="ansheader">Answer:</span>
       </div>
       <div className="cont qa-data">
-        <a href="#" className="q-data">{props.q}</a>
+        <span className="q-data">{props.q}</span>
         <span className="a-data">{props.a}</span>
         <span className="author-date">{`By ${props.auth} on ${formattedDate}`}</span>
       </div>

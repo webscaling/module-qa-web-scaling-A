@@ -25,7 +25,7 @@ qaDB.once('open', function() {
 
 //endpoints; http reqs
 app.get('/yarpo', (req, res) => {
-  console.log('GET req to root/yarpo');
+  // console.log('GET req to root/yarpo');
   res.end('yarpo');
 });
 
@@ -33,11 +33,11 @@ app.get('/yarpo', (req, res) => {
 app.get('/item', (req, res) => {
   findItem(req.query.id)
     .then(item => {
-      console.log(`Successful GET req to /item for item: ${item}`);
+      // console.log(`Successful GET req to /item for item: ${item}`);
       res.status(200).send(item[0]);
     })
     .catch(err => {
-      console.log('error after GET req to /item for findItem query');
+      // console.log('error after GET req to /item for findItem query');
       res.status(500).send('Resources not found in QA database');
     });
 });
@@ -52,7 +52,7 @@ app.post('/item', (req, res) => {
   });
   product.save()
     .then(result => {
-      console.log('POST item req to /item: Promise resolved');
+      // console.log('POST item req to /item: Promise resolved');
       res.status(201).send({
         message: 'handling POST requests to /item'
         // createdProduct: result
@@ -64,7 +64,22 @@ app.post('/item', (req, res) => {
     });
 });
 
-
+//PUT req updateVoteCount
+app.put('/updateVote', (req, res) => {
+  Product.updateOne({ ProductId: req.body.pID, 'QA._id': req.body.qID },
+    {
+      '$set': {
+        'QA.$.Votes': req.body.votes
+      }
+    })
+    .exec()
+    .then(() => {
+      res.status(200).end();
+    })
+    .catch(err => {
+      console.error(err);
+    });
+});
 
 
 

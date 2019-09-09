@@ -8,6 +8,7 @@ const qaDB = mongoose.connection;
 
 
 const qaSchema = new mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
   Qstn: String,
   Ans: String,
   Author: String,
