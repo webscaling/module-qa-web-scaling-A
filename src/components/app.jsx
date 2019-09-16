@@ -10,28 +10,19 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      id: 66,
+      id: 1000000,
       qaSearchBar: '',
-      qArr: [
-        {'Qstn': 'Does they feel comfy?', 'Ans': 'Yessum', 'Votes': 4, 'Author': 'Jim', 'Date': 'October 5, 2016' },
-        {'Qstn': 'Does they feel just right?', 'Ans': 'Yarp', 'Votes': 5, 'Author': 'Darnell', 'Date': 'October 8, 2016' },
-        {'Qstn': 'Does they taste like real eggs?', 'Ans': 'Yes, they most certainly do!', 'Votes': 6, 'Author': 'Bob', 'Date': 'October 23, 2016' },
-        {'Qstn': 'Does they feel just right?', 'Ans': 'Yarp', 'Votes': 5, 'Author': 'Darnell', 'Date': 'October 8, 2016' }
-      ],
-      cappedQArr: [
-        {'Qstn': 'Does they feel comfy?', 'Ans': 'Yessum', 'Votes': 4, 'Author': 'Jim', 'Date': 'October 5, 2016' },
-        {'Qstn': 'Does they feel just right?', 'Ans': 'Yarp', 'Votes': 5, 'Author': 'Darnell', 'Date': 'October 8, 2016' },
-        {'Qstn': 'Does they taste like real eggs?', 'Ans': 'Yes, they most certainly do!', 'Votes': 6, 'Author': 'Bob', 'Date': 'October 23, 2016' },
-        {'Qstn': 'Does they feel just right?', 'Ans': 'Yarp', 'Votes': 5, 'Author': 'Darnell', 'Date': 'October 8, 2016' }
-      ],
+      qArr: [],
+      cappedQArr: [],
       // remQ: (this.state.qArr - this.state.cappedQArr),
-      dns: 'http://18.223.28.104'
+      dns: 'http://localhost:3000'
       // 'http://localhost:3000'  'http://18.223.28.104' swap for local testing
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   getItem(id) {
+    //MONGO
     axios.get(`${this.state.dns}/item`, {
       params: {
         id: id
@@ -65,13 +56,6 @@ export default class App extends Component {
     this.setState({ [event.target.id]: event.target.value });
   }
 
-  // moreQs(cappedArr, arr) {
-  //   this.setState({
-  //     cappedQArr: this.state.qArr.slice()
-  //     remQ:
-  //   });
-  // }
-
   render() {
     return (
       <div id="QA-comp-cont" className="cont">
@@ -98,16 +82,4 @@ export default class App extends Component {
       </div>
     );
   }
-
-
 }
-
-
-{/* <div className="qa-a-section">
-          <span className="qa-a-button">
-            <span onClick={() => this.moreQs(this.state.cappedQArr, this.state.qArr)} className="qa-a-button-text">
-              See more answered questions {this.state.remQ}
-            </span>
-          </span>
-        </div>
-      </div> */}

@@ -1,9 +1,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const axios = require('axios');
 const mongoose = require('mongoose');
-const { qaDB, Product, findItem } = require('./db/db.js');
+const { qaDB, Product, findItem } = require('./db/mongo/mongodb.js');
 
 app.use(express.static('dist'));
 
@@ -20,7 +19,7 @@ app.use((req, res, next) => {
 //db Connection log
 qaDB.on('error', console.error.bind(console, 'connection error:'));
 qaDB.once('open', function() {
-  console.log('db connected yarpin!');
+  console.log('MongoDB Connected!');
 });
 
 //endpoints; http reqs
@@ -47,7 +46,6 @@ app.post('/item', (req, res) => {
     _id: new mongoose.Types.ObjectId(),
     ProductId: req.body.ProductId,
     ItemName: req.body.ItemName,
-    Category: req.body.Category,
     QA: req.body.QA
   });
   product.save()
@@ -86,4 +84,4 @@ app.put('/updateVote', (req, res) => {
 
 //Port
 const port = 3000;
-app.listen(port, () => console.log(`QA proxy serving up the customer query sauce at port: ${port}`));
+app.listen(port, () => console.log(`QA server connected on port: ${port}`));
