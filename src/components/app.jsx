@@ -22,17 +22,34 @@ export default class App extends Component {
   }
 
   getItem(id) {
-    //MONGO
-    axios.get(`${this.state.dns}/item`, {
+    //!MONGO
+    // axios.get(`${this.state.dns}/item`, {
+    //   params: {
+    //     id: id
+    //   }
+    // })
+    //   .then(({ data }) => {
+    //      console.log('successful axios GET req getItem' + data);
+    //     this.setState({
+    //       qArr: data.QA,
+    //       cappedQArr: data.QA.slice(0, 4)
+    //     });
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
+
+    //!PostgreSQL
+    axios.get(`${this.state.dns}/itemPSQL`, {
       params: {
         id: id
       }
     })
       .then(({ data }) => {
-        // console.log('successful axios GET req getItem' + data);
+        console.log('successful axios GET req getItem' + data);
         this.setState({
-          qArr: data.QA,
-          cappedQArr: data.QA.slice(0, 4)
+          qArr: data,
+          cappedQArr: data.slice(0, 4)
         });
       })
       .catch(err => {
